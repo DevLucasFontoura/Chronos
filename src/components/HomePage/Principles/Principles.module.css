@@ -1,0 +1,241 @@
+/* Princípios */
+.principles {
+  min-height: 100vh;
+  padding: 3rem 4rem;
+  background: rgba(10, 15, 31, 0.8);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.principles::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(142, 149, 241, 0.5), transparent);
+}
+
+.principlesContent {
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.headerSection {
+  text-align: center;
+  margin-bottom: 5rem;
+}
+
+.sectionTitle {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #46f3ed;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 30px rgba(70, 243, 237, 0.2);
+  letter-spacing: -0.02em;
+}
+
+.sectionSubtitle {
+  font-size: 1.375rem;
+  color: rgba(255, 255, 255, 0.7);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+.principlesGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: start;
+}
+
+.principleColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.columnTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.principlesList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.principleItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  padding: 2.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-left: 4px solid;
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  min-height: 140px;
+}
+
+.principleItemNegative {
+  border-left-color: rgba(142, 149, 241, 0.5);
+}
+
+.principleItemPositive {
+  border-left-color: #46f3ed;
+}
+
+.principleItem:hover {
+  transform: translateY(-4px);
+  border-left-width: 6px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+.principleIconContainer {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.principleItem:hover .principleIconContainer {
+  transform: scale(1.1);
+}
+
+.principleItemNegative .principleIconContainer {
+  background: rgba(142, 149, 241, 0.15);
+}
+
+.principleItemPositive .principleIconContainer {
+  background: rgba(70, 243, 237, 0.15);
+}
+
+.iconSvg {
+  width: 28px;
+  height: 28px;
+  filter: drop-shadow(0 0 8px rgba(70, 243, 237, 0.4));
+}
+
+.principleItemNegative .iconSvg {
+  color: #8e95f1;
+  filter: drop-shadow(0 0 8px rgba(142, 149, 241, 0.4));
+}
+
+.principleItemPositive .iconSvg {
+  color: #46f3ed;
+  filter: drop-shadow(0 0 8px rgba(70, 243, 237, 0.4));
+}
+
+.principleContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.principleText {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.4;
+  font-weight: 600;
+}
+
+.principleDescription {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.6;
+  margin: 0;
+}
+
+@media (max-width: 1200px) {
+  .principlesGrid {
+    gap: 3rem;
+  }
+
+  .principleItem {
+    padding: 2rem;
+    min-height: auto;
+  }
+}
+
+@media (max-width: 968px) {
+  .principlesGrid {
+    grid-template-columns: 1fr;
+    gap: 4rem;
+  }
+
+  .principleColumn {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .principles {
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+  }
+
+  .headerSection {
+    margin-bottom: 3rem;
+  }
+
+  .sectionTitle {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 1.125rem;
+  }
+
+  .columnTitle {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .principleItem {
+    padding: 1.75rem;
+    gap: 1.25rem;
+    min-height: auto;
+  }
+
+  .principleIconContainer {
+    width: 48px;
+    height: 48px;
+  }
+
+  .iconSvg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .principleText {
+    font-size: 1.25rem;
+  }
+
+  .principleDescription {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,119 @@
+/* Chamada Final */
+.finalCTA {
+  min-height: 100vh;
+  padding: 2rem 4rem;
+  background: linear-gradient(135deg, #192e5d 0%, #0a0f1f 100%);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.finalCTA::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at center, rgba(70, 243, 237, 0.1) 0%, transparent 70%);
+  opacity: 0.3;
+}
+
+.finalCTAContent {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.finalCTATitle {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #46f3ed;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 30px rgba(70, 243, 237, 0.4);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.finalCTASubtitle {
+  font-size: 1.375rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 3.5rem;
+  line-height: 1.8;
+}
+
+.finalCTAButtons {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.finalCTAButton {
+  padding: 1.5rem 3rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.finalCTAButtonPrimary {
+  color: #192e5d;
+  background: linear-gradient(135deg, #46f3ed 0%, #8e95f1 100%);
+  box-shadow: 0 10px 30px rgba(70, 243, 237, 0.3);
+}
+
+.finalCTAButtonPrimary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(70, 243, 237, 0.4);
+}
+
+.finalCTAButtonSecondary {
+  color: #46f3ed;
+  background: transparent;
+  border: 2px solid #46f3ed;
+  box-shadow: 0 0 20px rgba(70, 243, 237, 0.2);
+}
+
+.finalCTAButtonSecondary:hover {
+  background: rgba(70, 243, 237, 0.1);
+  box-shadow: 0 0 30px rgba(70, 243, 237, 0.3);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .finalCTA {
+    min-height: 100vh;
+    padding: 1.5rem;
+  }
+
+  .finalCTATitle {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .finalCTASubtitle {
+    font-size: 1.125rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .finalCTAButtons {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .finalCTAButton {
+    width: 100%;
+    padding: 1.25rem 2rem;
+  }
+}
+

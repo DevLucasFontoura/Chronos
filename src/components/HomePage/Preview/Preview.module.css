@@ -1,0 +1,381 @@
+/* Preview Visual */
+.preview {
+  min-height: 100vh;
+  padding: 3rem 4rem;
+  background: linear-gradient(180deg, rgba(25, 46, 93, 0.6) 0%, rgba(10, 15, 31, 0.8) 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(70, 243, 237, 0.5), transparent);
+}
+
+.previewContent {
+  max-width: 1600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.sectionTitle {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #46f3ed;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 30px rgba(70, 243, 237, 0.2);
+  letter-spacing: -0.02em;
+}
+
+.sectionSubtitle {
+  font-size: 1.375rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  margin-bottom: 4rem;
+  line-height: 1.8;
+}
+
+.previewGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.previewCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(70, 243, 237, 0.2);
+  border-radius: 1.5rem;
+  padding: 2.5rem;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.previewCard:hover {
+  border-color: rgba(70, 243, 237, 0.4);
+  box-shadow: 0 20px 60px rgba(70, 243, 237, 0.15);
+  transform: translateY(-4px);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.timerIcon {
+  width: 32px;
+  height: 32px;
+  color: #46f3ed;
+  filter: drop-shadow(0 0 8px rgba(70, 243, 237, 0.4));
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #46f3ed;
+  margin: 0;
+}
+
+/* Timer Display */
+.timerDisplay {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 2rem 0;
+}
+
+.timerTime {
+  font-size: 4rem;
+  font-weight: 800;
+  color: #46f3ed;
+  font-variant-numeric: tabular-nums;
+  text-shadow: 0 0 20px rgba(70, 243, 237, 0.4);
+  letter-spacing: 0.05em;
+}
+
+.timerInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: center;
+  width: 100%;
+}
+
+.timerProject,
+.timerTask {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+}
+
+.timerControls {
+  display: flex;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.controlButton {
+  flex: 1;
+  padding: 1rem;
+  background: rgba(70, 243, 237, 0.1);
+  border: 1px solid rgba(70, 243, 237, 0.3);
+  border-radius: 0.75rem;
+  color: #46f3ed;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.controlButton:hover {
+  background: rgba(70, 243, 237, 0.2);
+  border-color: rgba(70, 243, 237, 0.5);
+}
+
+.controlButtonStop {
+  background: rgba(142, 149, 241, 0.1);
+  border-color: rgba(142, 149, 241, 0.3);
+  color: #8e95f1;
+}
+
+.controlButtonStop:hover {
+  background: rgba(142, 149, 241, 0.2);
+  border-color: rgba(142, 149, 241, 0.5);
+}
+
+.playIcon,
+.pauseIcon {
+  width: 16px;
+  height: 16px;
+}
+
+/* Projects & Tasks */
+.projectsList {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow-y: auto;
+}
+
+.projectItem {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.projectHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.projectName {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.projectTime {
+  font-size: 0.875rem;
+  color: #46f3ed;
+  font-weight: 500;
+}
+
+.tasksList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.taskItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+}
+
+.taskItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(70, 243, 237, 0.2);
+}
+
+.taskActive {
+  border-color: rgba(70, 243, 237, 0.3);
+  background: rgba(70, 243, 237, 0.08);
+}
+
+.taskName {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.taskStatus {
+  font-size: 0.8125rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.375rem;
+  font-weight: 500;
+}
+
+.taskItem:not(.taskActive) .taskStatus {
+  color: rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.taskActive .taskStatus {
+  color: #46f3ed;
+  background: rgba(70, 243, 237, 0.15);
+}
+
+/* History */
+.historyList {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.historyItem {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.25rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 0.75rem;
+  transition: all 0.2s ease;
+}
+
+.historyItem:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(70, 243, 237, 0.2);
+}
+
+.historyInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+  flex: 1;
+}
+
+.historyProject {
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.historyTask {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.historyMeta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.375rem;
+  text-align: right;
+}
+
+.historyDate {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.historyDuration {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #46f3ed;
+  font-variant-numeric: tabular-nums;
+}
+
+.exportButton {
+  width: 100%;
+  padding: 1rem;
+  background: rgba(70, 243, 237, 0.1);
+  border: 1px solid rgba(70, 243, 237, 0.3);
+  border-radius: 0.75rem;
+  color: #46f3ed;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: auto;
+}
+
+.exportButton:hover {
+  background: rgba(70, 243, 237, 0.2);
+  border-color: rgba(70, 243, 237, 0.5);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 1400px) {
+  .previewGrid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .previewCard {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .preview {
+    min-height: 100vh;
+    padding: 2rem 1.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 1.125rem;
+    margin-bottom: 3rem;
+  }
+
+  .previewCard {
+    padding: 2rem 1.5rem;
+  }
+
+  .timerTime {
+    font-size: 3rem;
+  }
+
+  .cardTitle {
+    font-size: 1.25rem;
+  }
+}

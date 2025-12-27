@@ -1,0 +1,140 @@
+.footer {
+  padding: 4rem 1.5rem 2rem;
+  background: #0a0f1f;
+  color: white;
+  border-top: 1px solid rgba(70, 243, 237, 0.2);
+  position: relative;
+}
+
+.footer::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #46f3ed, transparent);
+}
+
+.footerContent {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footerTop {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+
+.footerBrand {
+  max-width: 400px;
+}
+
+.footerName {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: #46f3ed;
+  text-shadow: 0 0 20px rgba(70, 243, 237, 0.3);
+}
+
+.footerSlogan {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+
+.footerDescription {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.6);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.footerLinks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+.footerColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.footerColumnTitle {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #46f3ed;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.875rem;
+}
+
+.footerList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.footerLink {
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  cursor: pointer;
+}
+
+.footerLink:hover {
+  color: #46f3ed;
+}
+
+.footerDivider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(70, 243, 237, 0.3), transparent);
+  margin: 2rem 0;
+}
+
+.footerBottom {
+  text-align: center;
+  padding-top: 1.5rem;
+}
+
+.footerCopyright {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+@media (max-width: 968px) {
+  .footerTop {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .footerLinks {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    padding: 3rem 1.5rem 2rem;
+  }
+
+  .footerLinks {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footerBrand {
+    max-width: 100%;
+  }
+}

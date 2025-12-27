@@ -1,0 +1,302 @@
+/* Problema → Solução */
+.problemSolution {
+  min-height: 100vh;
+  padding: 2rem 4rem;
+  background: rgba(10, 15, 31, 0.6);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.problemSolution::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(142, 149, 241, 0.5), transparent);
+}
+
+.problemSolutionContent {
+  max-width: 1600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.1fr 0.3fr 1.1fr;
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
+.problemBlock,
+.solutionBlock {
+  padding: 4rem;
+  border-radius: 1.5rem;
+  position: relative;
+  overflow: hidden;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+}
+
+.problemBlock {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.problemBlock::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #8e95f1, transparent);
+}
+
+.solutionBlock {
+  background: linear-gradient(135deg, rgba(70, 243, 237, 0.15) 0%, rgba(142, 149, 241, 0.15) 100%);
+  border: 1px solid rgba(70, 243, 237, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.solutionBlock::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, #46f3ed, #8e95f1);
+}
+
+.blockHeader {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.blockIcon {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 0 10px rgba(70, 243, 237, 0.3));
+}
+
+.blockTitle {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.problemBlock .blockTitle {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.solutionBlock .blockTitle {
+  color: #46f3ed;
+  text-shadow: 0 0 20px rgba(70, 243, 237, 0.3);
+}
+
+.blockContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.blockText {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  margin: 0;
+}
+
+.problemBlock .blockText {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.solutionBlock .blockText {
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.problemList,
+.solutionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.problemItem,
+.solutionItem {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.125rem;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.problemItem {
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.problemItem:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateX(5px);
+}
+
+.solutionItem {
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(70, 243, 237, 0.1);
+}
+
+.solutionItem:hover {
+  background: rgba(70, 243, 237, 0.15);
+  transform: translateX(5px);
+}
+
+.problemItemIcon {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 1.5rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.solutionItemIcon {
+  color: #46f3ed;
+  font-size: 1.5rem;
+  font-weight: 700;
+  flex-shrink: 0;
+  filter: drop-shadow(0 0 5px rgba(70, 243, 237, 0.5));
+}
+
+.logoSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.logoContainer {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoIcon {
+  width: 100%;
+  height: 100%;
+  color: #46f3ed;
+  filter: drop-shadow(0 0 20px rgba(70, 243, 237, 0.5));
+  position: relative;
+  z-index: 2;
+  animation: float 3s ease-in-out infinite;
+}
+
+.logoGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 140px;
+  height: 140px;
+  background: radial-gradient(circle, rgba(70, 243, 237, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+.arrowIcon {
+  font-size: 3rem;
+  color: #46f3ed;
+  font-weight: 300;
+  filter: drop-shadow(0 0 10px rgba(70, 243, 237, 0.5));
+  animation: arrowPulse 2s ease-in-out infinite;
+}
+
+@keyframes arrowPulse {
+  0%, 100% {
+    opacity: 0.6;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: translateX(5px);
+  }
+}
+
+@media (max-width: 1200px) {
+  .problemSolutionContent {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .logoSection {
+    flex-direction: row;
+    order: 2;
+  }
+
+  .arrowIcon {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 768px) {
+  .problemSolution {
+    min-height: 100vh;
+    padding: 1.5rem;
+  }
+
+  .problemBlock,
+  .solutionBlock {
+    padding: 2.5rem;
+    min-height: auto;
+  }
+
+  .blockTitle {
+    font-size: 1.75rem;
+  }
+
+  .logoContainer {
+    width: 80px;
+    height: 80px;
+  }
+
+  .logoGlow {
+    width: 100px;
+    height: 100px;
+  }
+}
