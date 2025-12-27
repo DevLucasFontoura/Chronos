@@ -1,6 +1,7 @@
 'use client';
 
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import styles from "./PrivateMenu.module.css";
 
 function ChronosIcon() {
@@ -99,12 +100,17 @@ interface PrivateMenuProps {
 }
 
 export default function PrivateMenu({ onHistoryClick, showHistory = false }: PrivateMenuProps) {
+  const router = useRouter();
   const currentDate = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
     day: 'numeric'
   });
+
+  const handleLogout = () => {
+    router.push('/');
+  };
 
   return (
     <nav className={styles.nav}>
@@ -136,7 +142,7 @@ export default function PrivateMenu({ onHistoryClick, showHistory = false }: Pri
               <CalendarIcon />
               <span className={styles.currentDate}>{currentDate}</span>
             </div>
-            <button className={styles.logoutButton}>
+            <button className={styles.logoutButton} onClick={handleLogout}>
               <LogoutIcon />
               Sair
             </button>
