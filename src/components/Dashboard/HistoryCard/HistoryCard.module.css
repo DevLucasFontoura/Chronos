@@ -70,7 +70,7 @@
   position: sticky;
   top: 0;
   z-index: 10;
-  background: rgba(25, 46, 93, 0.95);
+  background: rgba(15, 23, 42, 0.95);
   backdrop-filter: blur(10px);
 }
 
@@ -115,7 +115,7 @@
 .historyDuration {
   font-size: 1rem;
   font-weight: 600;
-  color: #46f3ed;
+  color: #10b981;
   font-variant-numeric: tabular-nums;
 }
 

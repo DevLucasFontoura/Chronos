@@ -116,14 +116,14 @@
 }
 
 .controlButtonStop {
-  background: rgba(142, 149, 241, 0.1);
-  border-color: rgba(142, 149, 241, 0.3);
-  color: #8e95f1;
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.3);
+  color: #f59e0b;
 }
 
 .controlButtonStop:hover {
-  background: rgba(142, 149, 241, 0.2);
-  border-color: rgba(142, 149, 241, 0.5);
+  background: rgba(245, 158, 11, 0.2);
+  border-color: rgba(245, 158, 11, 0.5);
 }
 
 .playIcon,
