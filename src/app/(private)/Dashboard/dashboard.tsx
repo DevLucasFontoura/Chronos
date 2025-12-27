@@ -68,9 +68,27 @@ export default function Dashboard() {
   const [showHistory, setShowHistory] = useState(false);
   const [selectedProject, setSelectedProject] = useState<string | null>(null);
   const [selectedTask, setSelectedTask] = useState<string | null>(null);
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [tasks, setTasks] = useState<Task[]>([]);
-  const [history, setHistory] = useState<HistoryItem[]>([]);
+  const [projects, setProjects] = useState<Project[]>([
+    { name: 'Website Redesign', totalSeconds: 14400 }, // 4h
+    { name: 'App Mobile', totalSeconds: 25200 }, // 7h
+    { name: 'Sistema E-commerce', totalSeconds: 32400 }, // 9h
+  ]);
+  const [tasks, setTasks] = useState<Task[]>([
+    { name: 'Implementar Header', completed: true, projectName: 'Website Redesign' },
+    { name: 'Responsividade Mobile', completed: true, projectName: 'Website Redesign' },
+    { name: 'Tela de Login', completed: false, projectName: 'Website Redesign' },
+    { name: 'API Integration', completed: true, projectName: 'App Mobile' },
+    { name: 'Database Setup', completed: false, projectName: 'App Mobile' },
+    { name: 'Checkout Flow', completed: true, projectName: 'Sistema E-commerce' },
+    { name: 'Payment Gateway', completed: false, projectName: 'Sistema E-commerce' },
+  ]);
+  const [history, setHistory] = useState<HistoryItem[]>([
+    { project: 'Website Redesign', task: 'Implementar Header', date: 'Today, 14:30', duration: '01:23:45' },
+    { project: 'Website Redesign', task: 'Responsividade Mobile', date: 'Today, 10:15', duration: '02:45:12' },
+    { project: 'App Mobile', task: 'API Integration', date: 'Yesterday, 16:20', duration: '03:10:30' },
+    { project: 'Sistema E-commerce', task: 'Checkout Flow', date: 'Yesterday, 09:00', duration: '02:15:30' },
+    { project: 'Website Redesign', task: 'Tela de Login', date: '25/12/2024, 15:45', duration: '01:30:00' },
+  ]);
   const [isTimerRunning, setIsTimerRunning] = useState(false);
 
   const handleAddProject = (projectName: string) => {
