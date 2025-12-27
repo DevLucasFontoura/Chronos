@@ -43,15 +43,15 @@ export default function Hero() {
           <div className={styles.heroFeatures}>
             <div className={styles.heroFeature}>
               <span className={styles.heroFeatureIcon}>✓</span>
-              <span>Sem múltiplos timers</span>
+              <span>Foco total em uma tarefa</span>
             </div>
             <div className={styles.heroFeature}>
               <span className={styles.heroFeatureIcon}>✓</span>
-              <span>Histórico confiável</span>
+              <span>Histórico preciso</span>
             </div>
             <div className={styles.heroFeature}>
               <span className={styles.heroFeatureIcon}>✓</span>
-              <span>PDF profissional</span>
+              <span>Relatórios profissionais</span>
             </div>
           </div>
         </div>

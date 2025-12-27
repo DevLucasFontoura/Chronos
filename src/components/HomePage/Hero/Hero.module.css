@@ -28,7 +28,7 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, rgba(10, 15, 31, 0.85) 0%, rgba(25, 46, 93, 0.7) 100%);
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0.85) 0%, rgba(30, 41, 59, 0.7) 100%);
   z-index: 1;
 }
 
@@ -106,8 +106,8 @@
   padding: 1rem 2.5rem;
   font-size: 1.125rem;
   font-weight: 600;
-  color: #192e5d;
-  background: linear-gradient(135deg, #46f3ed 0%, #8e95f1 100%);
+  color: #0f172a;
+  background: linear-gradient(135deg, #46f3ed 0%, #10b981 100%);
   border-radius: 0.75rem;
   text-decoration: none;
   transition: all 0.3s ease;
@@ -171,7 +171,7 @@
 }
 
 .heroFeatureIcon {
-  color: #46f3ed;
+  color: #10b981;
   font-weight: 700;
   font-size: 1.125rem;
 }
@@ -200,19 +200,57 @@
   transition: all 0.3s ease;
 }
 
-.heroStat:hover {
+.heroStat:nth-child(1) {
+  border-color: rgba(70, 243, 237, 0.2);
+}
+
+.heroStat:nth-child(1):hover {
   border-color: rgba(70, 243, 237, 0.5);
-  transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(70, 243, 237, 0.2);
+}
+
+.heroStat:nth-child(2) {
+  border-color: rgba(245, 158, 11, 0.2);
+}
+
+.heroStat:nth-child(2):hover {
+  border-color: rgba(245, 158, 11, 0.5);
+  box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
+}
+
+.heroStat:nth-child(3) {
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.heroStat:nth-child(3):hover {
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.2);
+}
+
+.heroStat:hover {
+  transform: translateY(-3px);
 }
 
 .heroStatNumber {
   font-size: 2.5rem;
   font-weight: 800;
-  color: #46f3ed;
-  text-shadow: 0 0 20px rgba(70, 243, 237, 0.4);
   margin-bottom: 0.5rem;
   line-height: 1;
+}
+
+.heroStat:nth-child(1) .heroStatNumber {
+  color: #46f3ed;
+  text-shadow: 0 0 20px rgba(70, 243, 237, 0.4);
+}
+
+.heroStat:nth-child(2) .heroStatNumber {
+  color: #f59e0b;
+  text-shadow: 0 0 20px rgba(245, 158, 11, 0.4);
+}
+
+.heroStat:nth-child(3) .heroStatNumber {
+  color: #10b981;
+  text-shadow: 0 0 20px rgba(16, 185, 129, 0.4);
 }
 
 .heroStatLabel {

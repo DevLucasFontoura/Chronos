@@ -2,7 +2,7 @@
 .principles {
   min-height: 100vh;
   padding: 3rem 4rem;
-  background: rgba(10, 15, 31, 0.8);
+  background: rgba(15, 23, 42, 0.8);
   position: relative;
   display: flex;
   align-items: center;
@@ -16,7 +16,7 @@
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(142, 149, 241, 0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(70, 243, 237, 0.5), transparent);
 }
 
 .principlesContent {
