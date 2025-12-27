@@ -13,6 +13,10 @@
   overflow: hidden;
 }
 
+.dashboardCardDisabled {
+  opacity: 0.6;
+}
+
 .cardHeader {
   display: flex;
   align-items: center;
@@ -61,6 +65,11 @@
   box-shadow: 0 0 0 3px rgba(70, 243, 237, 0.1);
 }
 
+.taskInput:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 .addButton {
   width: 56px;
   display: flex;
@@ -86,6 +95,12 @@
 
 .addButton:active {
   transform: scale(0.95);
+}
+
+.addButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 /* Tasks List */
@@ -120,13 +135,19 @@
 
 .taskItem {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
   padding: 1.25rem 1.5rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 0.75rem;
   transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.taskNameContainer {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
 }
 
 .taskItem:hover {
@@ -135,15 +156,56 @@
   transform: translateY(-2px);
 }
 
+.taskItemSelected {
+  background: rgba(70, 243, 237, 0.1);
+  border-color: rgba(70, 243, 237, 0.4);
+}
+
+.taskItemSelected:hover {
+  background: rgba(70, 243, 237, 0.15);
+  border-color: rgba(70, 243, 237, 0.5);
+}
+
+.taskPlaceholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.9375rem;
+  text-align: center;
+}
+
 .taskName {
   font-size: 1.125rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.9);
+  flex: 1;
 }
 
-.taskStatus {
-  font-size: 0.875rem;
+.checkIcon {
+  width: 18px;
+  height: 18px;
   color: #46f3ed;
-  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.runningIcon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #46f3ed;
+  font-size: 1.25rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.xIcon {
+  width: 18px;
+  height: 18px;
+  color: #ef4444;
+  flex-shrink: 0;
 }
 

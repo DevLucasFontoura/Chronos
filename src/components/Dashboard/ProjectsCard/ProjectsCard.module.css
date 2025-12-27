@@ -128,12 +128,23 @@
   border: 1px solid rgba(255, 255, 255, 0.05);
   border-radius: 0.75rem;
   transition: all 0.2s ease;
+  cursor: pointer;
 }
 
 .projectItem:hover {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(70, 243, 237, 0.2);
   transform: translateX(4px);
+}
+
+.projectItemSelected {
+  background: rgba(70, 243, 237, 0.1);
+  border-color: rgba(70, 243, 237, 0.4);
+}
+
+.projectItemSelected:hover {
+  background: rgba(70, 243, 237, 0.15);
+  border-color: rgba(70, 243, 237, 0.5);
 }
 
 .projectName {

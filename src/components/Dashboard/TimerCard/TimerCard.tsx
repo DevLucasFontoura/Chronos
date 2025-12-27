@@ -1,3 +1,6 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import styles from './TimerCard.module.css';
 
 function TimerIcon() {
@@ -42,31 +45,109 @@ function PlayIcon() {
 }
 
 interface TimerCardProps {
-  selectedProject: string;
-  selectedTask: string;
+  selectedProject: string | null;
+  selectedTask: string | null;
+  onFinish?: (seconds: number) => void;
+  onRunningChange?: (isRunning: boolean) => void;
 }
 
-export default function TimerCard({ selectedProject, selectedTask }: TimerCardProps) {
+function formatTime(seconds: number): string {
+  const hours = Math.floor(seconds / 3600);
+  const minutes = Math.floor((seconds % 3600) / 60);
+  const secs = seconds % 60;
+  
+  return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+}
+
+export default function TimerCard({ selectedProject, selectedTask, onFinish, onRunningChange }: TimerCardProps) {
+  const [isRunning, setIsRunning] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+  const [seconds, setSeconds] = useState(0);
+
+  const canStart = selectedProject !== null && selectedTask !== null && !isRunning;
+
+  useEffect(() => {
+    let interval: NodeJS.Timeout | null = null;
+
+    if (isRunning && !isPaused) {
+      interval = setInterval(() => {
+        setSeconds((prev) => prev + 1);
+      }, 1000);
+    }
+
+    if (onRunningChange) {
+      onRunningChange(isRunning && !isPaused);
+    }
+
+    return () => {
+      if (interval) clearInterval(interval);
+    };
+  }, [isRunning, isPaused, onRunningChange]);
+
+  const handleStart = () => {
+    if (canStart) {
+      setIsRunning(true);
+      setIsPaused(false);
+    }
+  };
+
+  const handlePause = () => {
+    if (isRunning) {
+      setIsPaused(!isPaused);
+    }
+  };
+
+  const handleFinish = () => {
+    if (isRunning && seconds > 0 && onFinish) {
+      onFinish(seconds);
+    }
+    setIsRunning(false);
+    setIsPaused(false);
+    setSeconds(0);
+  };
+
   return (
     <div className={styles.dashboardCard}>
       <div className={styles.cardHeader}>
         <TimerIcon />
-        <h3 className={styles.cardTitle}>Timer Ativo</h3>
+        <h3 className={styles.cardTitle}>Active Timer</h3>
       </div>
       <div className={styles.timerDisplay}>
-        <div className={styles.timerTime}>01:23:45</div>
+        <div className={styles.timerTime}>{formatTime(seconds)}</div>
         <div className={styles.timerInfo}>
-          <span className={styles.timerProject}>Projeto: {selectedProject}</span>
-          <span className={styles.timerTask}>Tarefa: {selectedTask}</span>
+          <span className={styles.timerProject}>
+            Project: {selectedProject || 'No project selected'}
+          </span>
+          <span className={styles.timerTask}>
+            Task: {selectedTask || 'No task selected'}
+          </span>
         </div>
       </div>
       <div className={styles.timerControls}>
-        <button className={styles.controlButton}>
-          <PauseIcon />
-          Pausar
-        </button>
-        <button className={`${styles.controlButton} ${styles.controlButtonStop}`}>
-          Finalizar
+        {!isRunning ? (
+          <button 
+            className={styles.controlButton}
+            disabled={!canStart}
+            onClick={handleStart}
+          >
+            <PlayIcon />
+            Start
+          </button>
+        ) : (
+          <button 
+            className={styles.controlButton}
+            onClick={handlePause}
+          >
+            <PauseIcon />
+            {isPaused ? 'Resume' : 'Pause'}
+          </button>
+        )}
+        <button 
+          className={`${styles.controlButton} ${styles.controlButtonStop}`}
+          disabled={!isRunning && !canStart}
+          onClick={handleFinish}
+        >
+          Finish
         </button>
       </div>
     </div>

@@ -109,6 +109,12 @@
   transform: translateY(0);
 }
 
+.controlButton:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
 .controlButtonStop {
   background: rgba(142, 149, 241, 0.1);
   border-color: rgba(142, 149, 241, 0.3);
