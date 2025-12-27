@@ -1,5 +1,3 @@
-'use client';
-
 import styles from './HistoryCard.module.css';
 
 interface HistoryItem {

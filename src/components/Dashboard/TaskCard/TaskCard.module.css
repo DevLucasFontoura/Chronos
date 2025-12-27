@@ -13,7 +13,6 @@
   overflow: hidden;
 }
 
-
 .cardHeader {
   display: flex;
   align-items: center;
@@ -31,8 +30,8 @@
   margin: 0;
 }
 
-/* Add Project Input */
-.addProjectContainer {
+/* Add Task Input */
+.addTaskContainer {
   display: flex;
   align-items: stretch;
   gap: 0.4rem;
@@ -40,7 +39,7 @@
   flex-shrink: 0;
 }
 
-.projectInput {
+.taskInput {
   flex: 1;
   padding: 0.875rem 1rem;
   background: rgba(255, 255, 255, 0.05);
@@ -51,11 +50,11 @@
   transition: all 0.3s ease;
 }
 
-.projectInput::placeholder {
+.taskInput::placeholder {
   color: rgba(255, 255, 255, 0.4);
 }
 
-.projectInput:focus {
+.taskInput:focus {
   outline: none;
   border-color: rgba(70, 243, 237, 0.5);
   background: rgba(255, 255, 255, 0.08);
@@ -89,8 +88,8 @@
   transform: scale(0.95);
 }
 
-/* Projects List */
-.projectsList {
+/* Tasks List */
+.tasksList {
   flex: 1 1 0;
   display: flex;
   flex-direction: column;
@@ -101,28 +100,28 @@
   min-height: 0;
 }
 
-.projectsList::-webkit-scrollbar {
+.tasksList::-webkit-scrollbar {
   width: 6px;
 }
 
-.projectsList::-webkit-scrollbar-track {
+.tasksList::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.05);
   border-radius: 3px;
 }
 
-.projectsList::-webkit-scrollbar-thumb {
+.tasksList::-webkit-scrollbar-thumb {
   background: rgba(70, 243, 237, 0.3);
   border-radius: 3px;
 }
 
-.projectsList::-webkit-scrollbar-thumb:hover {
+.tasksList::-webkit-scrollbar-thumb:hover {
   background: rgba(70, 243, 237, 0.5);
 }
 
-.projectItem {
+.taskItem {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
   padding: 1.25rem 1.5rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.05);
@@ -130,22 +129,21 @@
   transition: all 0.2s ease;
 }
 
-.projectItem:hover {
+.taskItem:hover {
   background: rgba(255, 255, 255, 0.05);
   border-color: rgba(70, 243, 237, 0.2);
-  transform: translateX(4px);
+  transform: translateY(-2px);
 }
 
-.projectName {
+.taskName {
   font-size: 1.125rem;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.9);
 }
 
-.projectTime {
-  font-size: 1rem;
+.taskStatus {
+  font-size: 0.875rem;
   color: #46f3ed;
-  font-weight: 600;
-  font-variant-numeric: tabular-nums;
+  font-weight: 500;
 }
 

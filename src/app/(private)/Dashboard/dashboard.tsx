@@ -2,27 +2,59 @@ import styles from './dashboard.module.css';
 import PrivateMenu from '@/components/Menus/PrivateMenu/PrivateMenu';
 import TimerCard from '@/components/Dashboard/TimerCard/TimerCard';
 import ProjectsCard from '@/components/Dashboard/ProjectsCard/ProjectsCard';
-import HistoryCard from '@/components/Dashboard/HistoryCard/HistoryCard';
+import TaskCard from '@/components/Dashboard/TaskCard/TaskCard';
 
 export default function Dashboard() {
   const projects = [
     {
       name: 'Website Redesign',
       time: '12h 30m',
-      tasks: [
-        { name: 'Implementar Header', status: 'Em andamento', active: true },
-        { name: 'Criar Footer', status: 'Não iniciada', active: false },
-        { name: 'Responsividade', status: 'Finalizada', active: false },
-      ],
     },
     {
       name: 'App Mobile',
       time: '8h 15m',
-      tasks: [
-        { name: 'Tela de Login', status: 'Finalizada', active: false },
-        { name: 'Navegação', status: 'Não iniciada', active: false },
-      ],
     },
+    {
+      name: 'Sistema de E-commerce',
+      time: '24h 45m',
+    },
+    {
+      name: 'Dashboard Analytics',
+      time: '18h 20m',
+    },
+    {
+      name: 'API Backend',
+      time: '32h 10m',
+    },
+    {
+      name: 'Design System',
+      time: '15h 55m',
+    },
+    {
+      name: 'Documentação Técnica',
+      time: '9h 30m',
+    },
+    {
+      name: 'Testes Automatizados',
+      time: '21h 15m',
+    },
+    {
+      name: 'Otimização Performance',
+      time: '14h 40m',
+    },
+    {
+      name: 'Integração de Pagamentos',
+      time: '19h 25m',
+    },
+  ];
+
+  const tasks = [
+    { name: 'Implementar Header', status: 'Active' },
+    { name: 'Responsividade Mobile', status: 'Pending' },
+    { name: 'Tela de Login', status: 'Completed' },
+    { name: 'API Integration', status: 'Active' },
+    { name: 'Database Setup', status: 'Pending' },
+    { name: 'Testing', status: 'Pending' },
   ];
 
   const history = [
@@ -30,25 +62,21 @@ export default function Dashboard() {
     { project: 'Website Redesign', task: 'Responsividade', date: 'Hoje, 10:15', duration: '02:45:12' },
     { project: 'App Mobile', task: 'Tela de Login', date: 'Ontem, 16:20', duration: '03:10:30' },
     { project: 'App Mobile', task: 'Tela de Login', date: 'Ontem, 13:00', duration: '01:45:00' },
+    { project: 'Sistema de E-commerce', task: 'Checkout Flow', date: 'Ontem, 09:00', duration: '02:15:30' },
+    { project: 'Dashboard Analytics', task: 'Gráficos', date: '25/01, 15:45', duration: '04:30:00' },
   ];
 
   return (
     <div className={styles.dashboard}>
       <PrivateMenu />
       <div className={styles.dashboardContent}>
-        <div className={styles.dashboardHeader}>
-          <h1 className={styles.dashboardTitle}>Dashboard</h1>
-          <p className={styles.dashboardSubtitle}>
-            Controle seu tempo com disciplina e foco
-          </p>
-        </div>
-        <div className={styles.dashboardGrid}>
+        <div className={styles.dashboardTop}>
           <TimerCard
             selectedProject="Website Redesign"
             selectedTask="Implementar Header"
           />
           <ProjectsCard projects={projects} />
-          <HistoryCard history={history} />
+          <TaskCard tasks={tasks} />
         </div>
       </div>
     </div>
