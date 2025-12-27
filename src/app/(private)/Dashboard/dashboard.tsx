@@ -1,10 +1,15 @@
+'use client';
+
+import { useState } from 'react';
 import styles from './dashboard.module.css';
 import PrivateMenu from '@/components/Menus/PrivateMenu/PrivateMenu';
 import TimerCard from '@/components/Dashboard/TimerCard/TimerCard';
 import ProjectsCard from '@/components/Dashboard/ProjectsCard/ProjectsCard';
 import TaskCard from '@/components/Dashboard/TaskCard/TaskCard';
+import HistoryCard from '@/components/Dashboard/HistoryCard/HistoryCard';
 
 export default function Dashboard() {
+  const [showHistory, setShowHistory] = useState(false);
   const projects = [
     {
       name: 'Website Redesign',
@@ -68,16 +73,25 @@ export default function Dashboard() {
 
   return (
     <div className={styles.dashboard}>
-      <PrivateMenu />
+      <PrivateMenu 
+        onHistoryClick={() => setShowHistory(!showHistory)}
+        showHistory={showHistory}
+      />
       <div className={styles.dashboardContent}>
-        <div className={styles.dashboardTop}>
-          <TimerCard
-            selectedProject="Website Redesign"
-            selectedTask="Implementar Header"
-          />
-          <ProjectsCard projects={projects} />
-          <TaskCard tasks={tasks} />
-        </div>
+        {showHistory ? (
+          <div className={styles.dashboardHistory}>
+            <HistoryCard history={history} />
+          </div>
+        ) : (
+          <div className={styles.dashboardTop}>
+            <TimerCard
+              selectedProject="Website Redesign"
+              selectedTask="Implementar Header"
+            />
+            <ProjectsCard projects={projects} />
+            <TaskCard tasks={tasks} />
+          </div>
+        )}
       </div>
     </div>
   );

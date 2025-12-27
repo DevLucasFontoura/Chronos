@@ -139,6 +139,46 @@
   color: rgba(255, 255, 255, 0.9);
 }
 
+.historyButton {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0 1.5rem;
+  height: 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.historyButton:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(70, 243, 237, 0.3);
+  color: #46f3ed;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(70, 243, 237, 0.1);
+}
+
+.historyButtonActive {
+  color: #46f3ed;
+  background: rgba(70, 243, 237, 0.15);
+  border-color: rgba(70, 243, 237, 0.4);
+}
+
+.historyButtonActive:hover {
+  background: rgba(70, 243, 237, 0.2);
+  border-color: rgba(70, 243, 237, 0.5);
+}
+
+.historyIcon {
+  width: 18px;
+  height: 18px;
+}
+
 .exportButton {
   display: flex;
   align-items: center;

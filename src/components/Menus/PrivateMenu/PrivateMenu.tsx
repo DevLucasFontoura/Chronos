@@ -1,3 +1,5 @@
+'use client';
+
 import Link from "next/link";
 import styles from "./PrivateMenu.module.css";
 
@@ -75,7 +77,28 @@ function LogoutIcon() {
   );
 }
 
-export default function PrivateMenu() {
+function HistoryIcon() {
+  return (
+    <svg
+      className={styles.historyIcon}
+      fill="none"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      strokeWidth="2"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+  );
+}
+
+interface PrivateMenuProps {
+  onHistoryClick?: () => void;
+  showHistory?: boolean;
+}
+
+export default function PrivateMenu({ onHistoryClick, showHistory = false }: PrivateMenuProps) {
   const currentDate = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
     year: 'numeric',
@@ -98,6 +121,13 @@ export default function PrivateMenu() {
 
           {/* Links de Navegação */}
           <div className={styles.navLinks}>
+            <button 
+              className={`${styles.historyButton} ${showHistory ? styles.historyButtonActive : ''}`}
+              onClick={onHistoryClick}
+            >
+              <HistoryIcon />
+              History
+            </button>
             <button className={styles.exportButton}>
               <PDFIcon />
               Exportar PDF
