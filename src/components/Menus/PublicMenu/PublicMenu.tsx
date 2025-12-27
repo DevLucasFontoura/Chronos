@@ -27,12 +27,15 @@ function ChronosIcon() {
 export default function PublicMenu() {
   return (
     <nav className={styles.nav}>
-      <div className={styles.container}>
+      <div className={styles.navContainer}>
         <div className={styles.content}>
           {/* Logo / Nome da Aplicação */}
           <Link href="/" className={styles.logo}>
-            <ChronosIcon />
-            <span>Chronos</span>
+            <div className={styles.logoContainer}>
+              <ChronosIcon />
+              <div className={styles.logoGlow}></div>
+            </div>
+            <span className={styles.logoText}>CHRONOS</span>
           </Link>
 
           {/* Links de Navegação */}
