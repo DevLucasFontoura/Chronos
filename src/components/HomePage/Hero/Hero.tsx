@@ -33,10 +33,10 @@ export default function Hero() {
             Sem contexto, sem timer. Apenas disciplina real.
           </p>
           <div className={styles.heroCTAs}>
-            <Link href="/login" className={styles.heroCTAPrimary}>
+            <Link href="/Dashboard" className={styles.heroCTAPrimary}>
               Começar agora
             </Link>
-            <Link href="/login" className={styles.heroCTASecondary}>
+            <Link href="/Dashboard" className={styles.heroCTASecondary}>
               Ver como funciona
             </Link>
           </div>

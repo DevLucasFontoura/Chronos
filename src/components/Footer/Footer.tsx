@@ -25,12 +25,12 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/login" className={styles.footerLink}>
+                  <Link href="/Dashboard" className={styles.footerLink}>
                     Entrar
                   </Link>
                 </li>
                 <li>
-                  <Link href="/login" className={styles.footerLink}>
+                  <Link href="/Dashboard" className={styles.footerLink}>
                     Começar Agora
                   </Link>
                 </li>

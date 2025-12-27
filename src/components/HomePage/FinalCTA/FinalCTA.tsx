@@ -10,10 +10,10 @@ export default function FinalCTA() {
           Comece agora e transforme a forma como você controla seu tempo
         </p>
         <div className={styles.finalCTAButtons}>
-          <Link href="/login" className={`${styles.finalCTAButton} ${styles.finalCTAButtonPrimary}`}>
+          <Link href="/Dashboard" className={`${styles.finalCTAButton} ${styles.finalCTAButtonPrimary}`}>
             Começar agora
           </Link>
-          <Link href="/login" className={`${styles.finalCTAButton} ${styles.finalCTAButtonSecondary}`}>
+          <Link href="/Dashboard" className={`${styles.finalCTAButton} ${styles.finalCTAButtonSecondary}`}>
             Entrar
           </Link>
         </div>
