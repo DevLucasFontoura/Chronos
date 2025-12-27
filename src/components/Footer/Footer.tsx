@@ -41,13 +41,19 @@ export default function Footer() {
               <h4 className={styles.footerColumnTitle}>Recursos</h4>
               <ul className={styles.footerList}>
                 <li>
-                  <span className={styles.footerLink}>Time Tracker</span>
+                  <Link href="/TimeTracker" className={styles.footerLink}>
+                    Time Tracker
+                  </Link>
                 </li>
                 <li>
-                  <span className={styles.footerLink}>Relatórios PDF</span>
+                  <Link href="/RelatoriosPDF" className={styles.footerLink}>
+                    Relatórios PDF
+                  </Link>
                 </li>
                 <li>
-                  <span className={styles.footerLink}>Histórico</span>
+                  <Link href="/Historico" className={styles.footerLink}>
+                    Histórico
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -56,12 +62,12 @@ export default function Footer() {
               <h4 className={styles.footerColumnTitle}>Legal</h4>
               <ul className={styles.footerList}>
                 <li>
-                  <Link href="/terms" className={styles.footerLink}>
+                  <Link href="/TermosDeUso" className={styles.footerLink}>
                     Termos de Uso
                   </Link>
                 </li>
                 <li>
-                  <Link href="/privacy" className={styles.footerLink}>
+                  <Link href="/Privacidade" className={styles.footerLink}>
                     Privacidade
                   </Link>
                 </li>
