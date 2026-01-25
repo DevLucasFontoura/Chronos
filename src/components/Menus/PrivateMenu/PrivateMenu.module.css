@@ -179,6 +179,11 @@
   height: 18px;
 }
 
+.statsIcon {
+  width: 18px;
+  height: 18px;
+}
+
 .exportButton {
   display: flex;
   align-items: center;

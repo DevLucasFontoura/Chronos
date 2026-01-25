@@ -78,10 +78,10 @@ function LogoutIcon() {
   );
 }
 
-function HistoryIcon() {
+function StatsIcon() {
   return (
     <svg
-      className={styles.historyIcon}
+      className={styles.statsIcon}
       fill="none"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -89,17 +89,18 @@ function HistoryIcon() {
       viewBox="0 0 24 24"
       stroke="currentColor"
     >
-      <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+      <path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
     </svg>
   );
 }
 
 interface PrivateMenuProps {
-  onHistoryClick?: () => void;
-  showHistory?: boolean;
+  onStatsClick?: () => void;
+  showStats?: boolean;
+  onLogoClick?: () => void;
 }
 
-export default function PrivateMenu({ onHistoryClick, showHistory = false }: PrivateMenuProps) {
+export default function PrivateMenu({ onStatsClick, showStats = false, onLogoClick }: PrivateMenuProps) {
   const router = useRouter();
   const currentDate = new Date().toLocaleDateString('en-US', {
     weekday: 'long',
@@ -112,12 +113,20 @@ export default function PrivateMenu({ onHistoryClick, showHistory = false }: Pri
     router.push('/');
   };
 
+  const handleLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    if (onLogoClick) {
+      onLogoClick();
+    }
+    router.push('/Dashboard');
+  };
+
   return (
     <nav className={styles.nav}>
       <div className={styles.navContainer}>
         <div className={styles.content}>
           {/* Logo / Nome da Aplicação */}
-          <Link href="/Dashboard" className={styles.logo}>
+          <Link href="/Dashboard" className={styles.logo} onClick={handleLogoClick}>
             <div className={styles.logoContainer}>
               <ChronosIcon />
               <div className={styles.logoGlow}></div>
@@ -128,11 +137,11 @@ export default function PrivateMenu({ onHistoryClick, showHistory = false }: Pri
           {/* Links de Navegação */}
           <div className={styles.navLinks}>
             <button 
-              className={`${styles.historyButton} ${showHistory ? styles.historyButtonActive : ''}`}
-              onClick={onHistoryClick}
+              className={`${styles.historyButton} ${showStats ? styles.historyButtonActive : ''}`}
+              onClick={onStatsClick}
             >
-              <HistoryIcon />
-              History
+              <StatsIcon />
+              Stats
             </button>
             <button className={styles.exportButton}>
               <PDFIcon />
