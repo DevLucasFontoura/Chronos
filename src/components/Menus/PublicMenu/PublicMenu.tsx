@@ -41,13 +41,13 @@ export default function PublicMenu() {
           {/* Links de Navegação */}
           <div className={styles.navLinks}>
             <Link href="/" className={styles.navLink}>
-              Início
+              Home
             </Link>
             <Link href="/Dashboard" className={styles.navLink}>
-              Entrar
+              Sign In
             </Link>
             <Link href="/Dashboard" className={styles.button}>
-              Começar Agora
+              Get Started
             </Link>
           </div>
 

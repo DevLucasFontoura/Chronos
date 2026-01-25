@@ -63,7 +63,7 @@ function XIcon() {
 
 export default function Preview() {
   return (
-    <section className={styles.preview}>
+    <section id="preview" className={styles.preview}>
       <div className={styles.previewContent}>
         <h2 className={styles.sectionTitle}>Preview</h2>
         <p className={styles.sectionSubtitle}>

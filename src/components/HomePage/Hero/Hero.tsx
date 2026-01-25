@@ -5,6 +5,13 @@ import Dither from "@/components/Dither/Dither";
 import styles from "./Hero.module.css";
 
 export default function Hero() {
+  const handleScrollToPreview = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const previewSection = document.getElementById('preview');
+    if (previewSection) {
+      previewSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
   return (
     <section className={styles.hero}>
       <div className={styles.heroBackground}>
@@ -36,7 +43,7 @@ export default function Hero() {
             <Link href="/Dashboard" className={styles.heroCTAPrimary}>
               Começar agora
             </Link>
-            <Link href="/Dashboard" className={styles.heroCTASecondary}>
+            <Link href="#preview" className={styles.heroCTASecondary} onClick={handleScrollToPreview}>
               Ver como funciona
             </Link>
           </div>

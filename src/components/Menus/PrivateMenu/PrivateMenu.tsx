@@ -145,7 +145,7 @@ export default function PrivateMenu({ onStatsClick, showStats = false, onLogoCli
             </button>
             <button className={styles.exportButton}>
               <PDFIcon />
-              Exportar PDF
+              Export PDF
             </button>
             <div className={styles.dateContainer}>
               <CalendarIcon />
@@ -153,7 +153,7 @@ export default function PrivateMenu({ onStatsClick, showStats = false, onLogoCli
             </div>
             <button className={styles.logoutButton} onClick={handleLogout}>
               <LogoutIcon />
-              Sair
+              Logout
             </button>
           </div>
 
