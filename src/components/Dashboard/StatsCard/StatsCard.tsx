@@ -245,13 +245,13 @@ export default function StatsCard({ projects, tasks, history }: StatsCardProps) 
         </div>
 
         {/* Charts Section */}
-        {chartData.length > 0 ? (
-          <>
-            <div className={styles.chartsGrid}>
-              {/* Pie Chart */}
-              <div className={styles.chartCard}>
-                <h4 className={styles.chartTitle}>Time by Project</h4>
-                <div className={styles.pieChartContainer}>
+        <div className={styles.chartsGrid}>
+          {/* Pie Chart */}
+          <div className={styles.chartCard}>
+            <h4 className={styles.chartTitle}>Time by Project</h4>
+            <div className={styles.pieChartContainer}>
+              {chartData.length > 0 ? (
+                <>
                   <svg viewBox="0 0 200 200" className={styles.pieChart}>
                     {pieSegments.map((segment, index) => (
                       <g key={index}>
@@ -291,83 +291,104 @@ export default function StatsCard({ projects, tasks, history }: StatsCardProps) 
                       </div>
                     ))}
                   </div>
+                </>
+              ) : (
+                <div className={styles.emptyChart}>
+                  <svg viewBox="0 0 200 200" className={styles.pieChart}>
+                    <circle cx="100" cy="100" r="80" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(70, 243, 237, 0.3)" strokeWidth="2" />
+                  </svg>
+                  <div className={styles.emptyChartMessage}>
+                    <p>No data available</p>
+                  </div>
                 </div>
-              </div>
+              )}
+            </div>
+          </div>
 
-              {/* Bar Chart */}
-              <div className={styles.chartCard}>
-                <h4 className={styles.chartTitle}>Hours per Project</h4>
-                <div className={styles.barChartContainer}>
-                  {chartData.map((project, index) => {
-                    const barHeight = (project.seconds / maxProjectTime) * 100;
-                    return (
-                      <div key={index} className={styles.barItem}>
-                        <div className={styles.barWrapper}>
+          {/* Bar Chart */}
+          <div className={styles.chartCard}>
+            <h4 className={styles.chartTitle}>Hours per Project</h4>
+            <div className={styles.barChartContainer}>
+              {chartData.length > 0 ? (
+                chartData.map((project, index) => {
+                  const barHeight = (project.seconds / maxProjectTime) * 100;
+                  return (
+                    <div key={index} className={styles.barItem}>
+                      <div className={styles.barWrapper}>
+                        <div
+                          className={styles.bar}
+                          style={{
+                            height: `${barHeight}%`,
+                            backgroundColor: colors[index % colors.length]
+                          }}
+                        >
+                          <span className={styles.barValue}>
+                            {formatProjectTime(project.seconds)}
+                          </span>
+                        </div>
+                      </div>
+                      <div className={styles.barLabel}>{project.name}</div>
+                    </div>
+                  );
+                })
+              ) : (
+                <div className={styles.emptyBarChart}>
+                  <p>No data available</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+
+        {/* Project Details Table */}
+        <div className={styles.projectTableContainer}>
+          <h4 className={styles.tableTitle}>Time by Project</h4>
+          <table className={styles.projectTable}>
+            <thead>
+              <tr>
+                <th>Project</th>
+                <th>Total Time</th>
+                <th>Percentage</th>
+              </tr>
+            </thead>
+            <tbody>
+              {projectData.length > 0 ? (
+                projectData.map((project, index) => (
+                  <tr key={index}>
+                    <td className={styles.projectName}>{project.name}</td>
+                    <td className={styles.projectTime}>
+                      {formatProjectTime(project.seconds)}
+                    </td>
+                    <td className={styles.projectPercentage}>
+                      <div className={styles.percentageContainer}>
+                        <span className={styles.percentageText}>
+                          {project.percentageOfTotal.toFixed(1)}%
+                        </span>
+                        <div className={styles.percentageBar}>
                           <div
-                            className={styles.bar}
+                            className={styles.percentageFill}
                             style={{
-                              height: `${barHeight}%`,
+                              width: `${project.percentageOfTotal}%`,
                               backgroundColor: colors[index % colors.length]
                             }}
-                          >
-                            <span className={styles.barValue}>
-                              {formatProjectTime(project.seconds)}
-                            </span>
-                          </div>
+                          />
                         </div>
-                        <div className={styles.barLabel}>{project.name}</div>
                       </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
-            {/* Project Details Table */}
-            <div className={styles.projectTableContainer}>
-              <h4 className={styles.tableTitle}>Time by Project</h4>
-              <table className={styles.projectTable}>
-                <thead>
-                  <tr>
-                    <th>Project</th>
-                    <th>Total Time</th>
-                    <th>Percentage</th>
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  {projectData.map((project, index) => (
-                    <tr key={index}>
-                      <td className={styles.projectName}>{project.name}</td>
-                      <td className={styles.projectTime}>
-                        {formatProjectTime(project.seconds)}
-                      </td>
-                      <td className={styles.projectPercentage}>
-                        <div className={styles.percentageContainer}>
-                          <span className={styles.percentageText}>
-                            {project.percentageOfTotal.toFixed(1)}%
-                          </span>
-                          <div className={styles.percentageBar}>
-                            <div
-                              className={styles.percentageFill}
-                              style={{
-                                width: `${project.percentageOfTotal}%`,
-                                backgroundColor: colors[index % colors.length]
-                              }}
-                            />
-                          </div>
-                        </div>
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </>
-        ) : (
-          <div className={styles.emptyState}>
-            <p>Nenhum dado de histórico disponível para exibir gráficos.</p>
-          </div>
-        )}
+                ))
+              ) : (
+                <tr>
+                  <td colSpan={3} className={styles.emptyTable}>
+                    <div className={styles.emptyTableContent}>
+                      <p>No data available. Start tracking your time to see project statistics here.</p>
+                    </div>
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
           </div>
         </div>
       ) : (

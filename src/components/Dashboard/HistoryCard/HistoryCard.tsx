@@ -92,18 +92,28 @@ export default function HistoryCard({ history }: HistoryCardProps) {
             </tr>
           </thead>
           <tbody>
-            {history.map((item, idx) => {
-              const { date, time } = formatDate(item.date);
-              return (
-                <tr key={idx}>
-                  <td className={styles.historyProject}>{item.project}</td>
-                  <td className={styles.historyTask}>{item.task}</td>
-                  <td className={styles.historyDuration}>{item.duration}</td>
-                  <td className={styles.historyDate}>{date}</td>
-                  <td className={styles.historyTime}>{time}</td>
-                </tr>
-              );
-            })}
+            {history.length > 0 ? (
+              history.map((item, idx) => {
+                const { date, time } = formatDate(item.date);
+                return (
+                  <tr key={idx}>
+                    <td className={styles.historyProject}>{item.project}</td>
+                    <td className={styles.historyTask}>{item.task}</td>
+                    <td className={styles.historyDuration}>{item.duration}</td>
+                    <td className={styles.historyDate}>{date}</td>
+                    <td className={styles.historyTime}>{time}</td>
+                  </tr>
+                );
+              })
+            ) : (
+              <tr>
+                <td colSpan={5} className={styles.emptyHistory}>
+                  <div className={styles.emptyHistoryContent}>
+                    <p>No history available. Start tracking your time to see your history here.</p>
+                  </div>
+                </td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>

@@ -54,16 +54,22 @@ export default function ProjectsCard({ projects, selectedProject, onProjectSelec
         </button>
       </div>
       <div className={styles.projectsList}>
-        {projects.map((project, idx) => (
-          <div 
-            key={idx} 
-            className={`${styles.projectItem} ${selectedProject === project.name ? styles.projectItemSelected : ''}`}
-            onClick={() => onProjectSelect(selectedProject === project.name ? null : project.name)}
-          >
-            <span className={styles.projectName}>{project.name}</span>
-            <span className={styles.projectTime}>{project.time}</span>
+        {projects.length > 0 ? (
+          projects.map((project, idx) => (
+            <div 
+              key={idx} 
+              className={`${styles.projectItem} ${selectedProject === project.name ? styles.projectItemSelected : ''}`}
+              onClick={() => onProjectSelect(selectedProject === project.name ? null : project.name)}
+            >
+              <span className={styles.projectName}>{project.name}</span>
+              <span className={styles.projectTime}>{project.time}</span>
+            </div>
+          ))
+        ) : (
+          <div className={styles.projectPlaceholder}>
+            No projects yet. Add your first project above to start tracking time.
           </div>
-        ))}
+        )}
       </div>
     </div>
   );
